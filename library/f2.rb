@@ -154,3 +154,22 @@ lib.new_book("Книга 3" , "Автор 3" );
 lib.new_book("Книга 4" , "Автор 1" );
 lib.show_author_of_book('Книга 4')
 puts lib
+
+
+# class OrdersCatalog 
+#     def initialize
+#         @orders = Hash.new([])
+#     end
+
+#     def add_item(order)
+#         @orders[order.book.id] <<  order
+#         order
+#     end
+
+#     def get_all_items
+#         @orders
+#     end
+#     def get_statistics
+#     end
+        
+# end
