@@ -17,6 +17,6 @@ class Reader < Human
     end
 
     def to_s
-        "#{self.min_info} | Email : #{email} | Address : #{address}"
+        "#{self.min_info}, #{email}, #{address}"
     end
 end

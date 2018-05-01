@@ -10,6 +10,7 @@ class Human
    end
    
    def == (other)
+       return false unless other.is_a? Human
        @name == other.name && @birth_year == other.birth_year
    end
 end

@@ -7,11 +7,12 @@ class Author < Human
     end
 
     def == (other)
+        return false unless other.is_a? Author
         super &&
         @biography == other.biography 
     end
 
     def to_s 
-        "#{self.min_info}, #{@biography}"
+        "#{self.min_info}\n#{@biography}"
     end
 end
