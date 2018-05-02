@@ -87,13 +87,13 @@ class Library
         books = @books.get_items_by_name(title)
         # Book titles can match
         case books.size
-            when 0
-                puts 'Автор не найден'
-            when 1 
-                puts books.author.name
-            else 
-                puts 'Несколько совпадений : '
-                books.each { |book| print "#{book.author.min_info} | " }
+        when 0
+            puts 'Автор не найден'
+        when 1 
+            puts books.author.name
+        else 
+            puts 'Несколько совпадений : '
+            books.each { |book| print "#{book.author.min_info} | " }
         end
     end
 
@@ -174,6 +174,7 @@ class Library
     private def parse_authors(old_state,new_state)
         authors = File.read('data_store/authors.txt').split('-' * 120)
         authors.pop
+        
         authors.each_with_index do |author, index|
              parse_author_string(author)
              old_id =  old_state['auth_id'][index]
@@ -207,12 +208,15 @@ class Library
     private def parse_orders(old_state, new_state, books_by_id , readers_by_id)
         orders = File.read('data_store/orders.txt').split('-' * 120)
         orders.pop
+
         orders.each_with_index do |order,index|
             order_date = Time.parse( order.split('Date :').last )
+
             old_r_id =  old_state['b_and_r_orders_ids'][index]['old_r_id']
             old_b_id = old_state['b_and_r_orders_ids'][index]['old_b_id']
             new_b_id = new_state[:new_b_id_by_old][old_b_id]
             new_r_id = new_state[:new_r_id_by_old][old_r_id]
+
             new_order(books_by_id[new_b_id], readers_by_id[new_r_id], order_date)
         end
     end

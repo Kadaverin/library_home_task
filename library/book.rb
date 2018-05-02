@@ -3,7 +3,7 @@ class Book
     alias :name :title
 
     def initialize(title, author)
-        raise ArgumentError unless (title.is_a? String) || (author.is_a? Author)
+        raise ArgumentError unless (title.is_a? String) && (author.is_a? Author)
         @title, @author = title, author
     end
 

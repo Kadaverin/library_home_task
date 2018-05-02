@@ -2,7 +2,7 @@ class Order
     attr_reader :book, :reader, :date
 
     def initialize(book, reader, date)
-        raise ArgumentError unless (book.is_a? Book) || (reader.is_a? Reader)
+        raise ArgumentError unless (book.is_a? Book) && (reader.is_a? Reader)
         @book, @reader, @date = book, reader, date
     end
 
